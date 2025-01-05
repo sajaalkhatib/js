@@ -120,6 +120,12 @@ for (let i = 1; i <= 8; i++) {
 }
 
 
+// let x =0;
+// for(let i = 1; i < 9; i++){
+//     x = x + i +" " 
+//     console.log(x); 
+// }
+
 
 
 

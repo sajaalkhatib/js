@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="age">Age (18 to 60):</label><br>
+        <input type="number" id="age" name="age" size="188" placeholder="Enter your age" min="18" max="60">
+        <br>
+        <br>
+        <label for="firstname">first Nmae:</label>
+        <input id="lastName" name="lastName" type="text" size="299" placeholder="name"  min="2" max="7"  required/>
+        <br><br>
+
+        <label for="lastName">last name:</label><br>
+        <input type="text" id="username" name="username" placeholder="Enter username" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+    const ageInput = document.getElementById('age');
+    const firstnameInput = document.getElementById('firstname');
+    const lastnameInput = document.getElementById('lastname');
+
+    if (ageInput.validity.rangeOverflow) {
+        alert('Age cannot be more than 60.');
+        event.preventDefault();
+    } else if (ageInput.validity.rangeUnderflow) {
+        alert('Age cannot be less than 18.');
+        event.preventDefault();
+    } else if (!lastnameInput.value.trim()) {
+        alert('Please enter a username.');
+        event.preventDefault();
+    }
+     else if (!firstnameInput.value.trim()) {
+        alert('Please enter a username.');
+        event.preventDefault();
+    }
+});
+    </script>
+</body>
+</html>
