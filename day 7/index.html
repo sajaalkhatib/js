@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+
+        //Current Date and Time
+
+        let now1 = new Date();
+        console.log(now1); // Outputs the current date and time
+
+        let specificDate = new Date("2025-01-06T15:30:00");
+        console.log(specificDate); // Outputs Mon Jan 06 2025 15:30:00
+
+        let customDate = new Date(2025, 0, 6, 15, 30, 0); // Month is 0-indexed
+        console.log(customDate);
+
+        let timestampDate = new Date(1672531200000); // Milliseconds since Jan 1, 1970
+         console.log(timestampDate);
+
+
+
+
+
+        //getFullYear(): Returns the four-digit year.
+            let now = new Date();
+            console.log(now.getFullYear()); 
+
+        //getMonth(): Returns the month (0–11, where 0 = January).
+          console.log(now.getMonth()); 
+          
+        // getDate(): Returns the day of the month (1–31).
+           console.log(now.getDate()); 
+
+
+        //getDay(): Returns the day of the week (0–6, where 0 = Sunday).
+           console.log(now.getDay()); // e.g., 1 for Monday
+    
+
+        //getHours(): Returns the hour (0–23).
+            console.log(now.getHours());
+
+
+        //getMinutes(): Returns the minutes (0–59).
+           console.log(now.getMinutes()); 
+
+
+        //getSeconds(): Returns the seconds (0–59).
+            console.log(now.getSeconds()); 
+
+        //getMilliseconds(): Returns the milliseconds (0–999).
+            console.log(now.getMilliseconds()); 
+
+    </script>
+</body>
+</html>

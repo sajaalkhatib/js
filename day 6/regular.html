@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form id="validationForm">
+        <label for="email_entry">Email:</label>
+        <input type="email" id="email_entry" name="email_entry" placeholder="Enter your email" />
+
+        <label for="password_entry">Password:</label>
+        <input type="password" id="password_entry" name="password_entry" placeholder="Enter your password" />
+
+        <button type="button" id="submit_button">Submit</button>
+    </form>
+
+    <script>
+       
+        const emailEntry = document.getElementById('email_entry');
+        const passwordEntry = document.getElementById('password_entry');
+        const submitButton = document.getElementById('submit_button');
+
+     
+        submitButton.addEventListener('click', function () {
+        
+            if (emailEntry.value === '' || passwordEntry.value === '') {
+                alert('Error: All Fields Are Required');
+                return;
+            }
+
+       
+            const emailField = emailEntry.value;
+            if (!emailField.endsWith('@bau.edu.jo')) {
+                alert('Error: The Email should be from Albalqa University');
+                return;
+            }
+
+        
+            alert('Validation Successful!');
+        });
+        
+    </script>
+</body>
+</html>

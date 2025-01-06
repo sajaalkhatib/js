@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            margin-top: 50px;
+        }
+        select {
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        img {
+            margin-top: 20px;
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+   
+    <select id="country" onchange="showFlag()">
+        <option value="" disabled selected>Select country</option>
+        <option value="palestine">phalasten </option>
+        <option value="jordan">jordan</option>
+    </select>
+    <div id="flagContainer">
+       
+    </div>
+
+    <script>
+        function showFlag() {
+            const country = document.getElementById("country").value;
+            const flagContainer = document.getElementById("flagContainer");
+
+         
+            flagContainer.innerHTML = "";
+
+      
+            if (country === "palestine") {
+                const img = document.createElement("img");
+                img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/1200px-Flag_of_Palestine.svg.png";
+                img.alt = "phalasten";
+                flagContainer.appendChild(img);
+            } else if (country === "jordan") {
+                const img = document.createElement("img");
+                img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Flag_of_Jordan.svg/1200px-Flag_of_Jordan.svg.png";
+                img.alt = "jordan";
+                flagContainer.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>
