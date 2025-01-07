@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        .error {
+            color: red;
+           
+        }
+    </style>
+</head>
+<body>
+    <form>
+    
+        <label>Enter a First Name: </label>
+        <input type="text" id="Fname">
+        <span id="fnameError" class="error"></span>
+        <br>
+
+    
+        <label>Enter a Last Name: </label>
+        <input type="text" id="lname">
+        <span id="lnameError" class="error"></span>
+        <br>
+        
+    
+        <label>Enter a Birth Date (DD/MM/YYYY): </label>
+        <input type="text" id="Bdate">
+        <span id="BdateError" class="error"></span>
+        <br>
+
+    
+        <label>Enter Email: </label>
+        <input type="email" id="email">
+        <span id="EmailError" class="error"></span>
+        <br>
+
+        
+        <label>Confirm Email: </label>
+        <input type="email" id="confirmEmail">
+        <span id="ConfirmEmailError" class="error"></span>
+        <br>
+
+      
+        <label>Enter Password: </label>
+        <input type="password" id="password">
+        <span id="PasswordError" class="error"></span>
+        <br>
+
+ 
+        <label>Confirm Password: </label>
+        <input type="password" id="confirmPassword">
+        <span id="confirmPasswordError" class="error"></span>
+    </form>
+
+    <script>
+     
+        const fnameRegex = /^[A-Za-z]+$/; 
+        const lnameRegex = /^[A-Za-z]+$/; 
+        const bdateRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^.{6,}$/; 
+
+       
+        function checkInput(inputField, regex, errorMessage, errorField) {
+            if (!regex.test(inputField.value)) {
+                errorField.textContent = errorMessage;
+            } else {
+                errorField.textContent = ""; 
+            }
+        }
+
+        
+        document.getElementById('Fname').addEventListener('input', function() {
+            checkInput(
+                this, fnameRegex, 'First name must contain only letters.', 
+                document.getElementById('fnameError')
+            );
+        });
+
+       
+        document.getElementById('lname').addEventListener('input', function() {
+            checkInput(
+                this, lnameRegex, 'Last name must contain only letters.', 
+                document.getElementById('lnameError')
+            );
+        });
+
+        
+        document.getElementById('Bdate').addEventListener('input', function() {
+            checkInput(
+                this, bdateRegex, 'Birthdate format must be DD/MM/YYYY.', 
+                document.getElementById('BdateError')
+            );
+        });
+
+  
+        document.getElementById('email').addEventListener('input', function() {
+            checkInput(
+                this, emailRegex, 'Invalid email format.', 
+                document.getElementById('EmailError')
+            );
+            const confirmEmailField = document.getElementById('confirmEmail');
+            if (confirmEmailField.value && confirmEmailField.value !== this.value) {
+                document.getElementById('ConfirmEmailError').textContent = 'Emails do not match.';
+            } else {
+                document.getElementById('ConfirmEmailError').textContent = '';
+            }
+        });
+
+       
+        document.getElementById('confirmEmail').addEventListener('input', function() {
+            const emailField = document.getElementById('email');
+            if (this.value !== emailField.value) {
+                document.getElementById('ConfirmEmailError').textContent = 'Emails do not match.';
+            } else {
+                document.getElementById('ConfirmEmailError').textContent = '';
+            }
+        });
+
+ 
+        document.getElementById('password').addEventListener('input', function() {
+            checkInput(
+                this, passwordRegex, 'Password must be at least 6 characters long.', 
+                document.getElementById('PasswordError')
+            );
+            const confirmPasswordField = document.getElementById('confirmPassword');
+            if (confirmPasswordField.value && confirmPasswordField.value !== this.value) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+            } else {
+                document.getElementById('confirmPasswordError').textContent = '';
+            }
+        });
+
+     
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const passwordField = document.getElementById('password');
+            if (this.value !== passwordField.value) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+            } else {
+                document.getElementById('confirmPasswordError').textContent = '';
+            }
+        });
+        
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
