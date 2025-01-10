@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    Check if a Number is Prime
+    Problem: Create a function isPrime(num) that checks if a number is prime. A prime number is only divisible by 1 and itself.
+    
+    Input/Output Example:
+    
+    Input: 7
+    
+    Output: true
+    
+    Input: 10
+    
+    Output: false -->
+
+    
+    <script>
+
+            function isprime(num) {
+                if (num === 1) {
+                    return false;
+                }
+                else {
+                    for (var i = 2; i < num; i++) {
+                        if (num % i === 0) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            }
+            console.log(isprime(1));
+
+        
+    </script>
+    
+</body>
+</html>

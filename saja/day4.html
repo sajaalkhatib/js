@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Create a Simple Calculator
+
+            Problem: Create a function simpleCalculator(a, b, operator) that performs basic arithmetic operations (addition, subtraction, multiplication, division) based on the given operator.
+
+            Input/Output Example:
+
+            Input: 5, 3, '+'
+            Output: 8 -->
+    
+    <script>
+        
+        function calculater(a,b,operator){
+        
+            if(operator==='+'){
+                return a+b;
+            }
+            else if(operator==='-'){
+                return a-b;
+            }
+            else if(
+                operator==='*'
+            ){
+                return a*b;
+            }
+            else if (operator ==='/'){
+                if(b===0){
+                    return "Error can not divide";
+                }
+                else{
+                    return a/b;
+                }
+            }
+            else {
+                return "invalid";
+            }
+
+        }
+       console.log( calculater(2,3,'+'));
+       
+
+    </script>
+</body>
+</html>
